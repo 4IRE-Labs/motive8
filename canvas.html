@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User profile</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&amp;subset=cyrillic,cyrillic-ext,latin-ext"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href='css/bootstrap.css' rel='stylesheet' type='text/css'>
+    <script src="./app.js"></script>
+</head>
+
+<body>
+
+    Canvas will be here<br>
+
+    <script>
+        window.addEventListener('load', function () {    
+            function drawAllCanvases() {
+                for(face = 1; face < 9; face ++) {
+                    for(mask=1; mask < 5; mask++) {
+                        for(color=0; color<Badge.colors.length; color++) {
+            
+                            var canvasId = "canvas_"+face+"_"+mask+"_"+color;
+                            var canvas = document.createElement("canvas");
+                            canvas.setAttribute("id", canvasId);
+                            canvas.setAttribute("width", 100);
+                            canvas.setAttribute("height", 100);
+                            document.body.appendChild(canvas);   
+            
+                            Badge.drawBadge({
+                                canvasId: canvasId,
+                                face: face,
+                                mask: mask,
+                                color: color
+                            });
+                        }
+                    }
+                }
+            };
+            drawAllCanvases()    
+        });
+    </script>
+</body>
+
+</html>
